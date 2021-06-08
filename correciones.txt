@@ -1,0 +1,47 @@
+Te voy a dar algunas sugerencias que tal vez te resulten mejor:
+
+
+Me encanto que hicieras un metodo para obtener el id, buen trabajo. No esta mal como la implementaste, tambien lo podias
+hacer directamente en el metodo guardar, y hasta los errores los podias manejar desde los metodos. Como te digo,
+tu manera no esta mal, solo te comento otra manera de hacerlo para que tus rutas queden mas limpias, y toda la logica
+queda en las metodos de la clase.
+
+Otra cosa, no tan importante es que tenias que responder con el producto guardado, esto lo piden porque es como un
+estandar responder con el producto que creaste.
+
+Te doy dos ejemplos de como puedes guardar el producto y ahorrarte un poquito de codigo:
+
+Usando tu solucion:
+
+
+app.post("/api/productos/guardar", (req, res) => {
+    nuevosProductos.guardar({
+        ...req.body,
+        id: nuevosProductos.getId(),
+    }) //aca guardas todos los datos que vienen en el objeto y despues de la coma modificass la propiedad que deseas o agregas nuevas
+    res.send(req.body) //aca respondes con el producto guardado
+})
+
+
+usando la menera que te dije agregando el id en el metodo guardar, el endpoint quedaria asi:
+
+app.post("/api/productos/guardar", (req, res) => {
+  	  nuevosProductos.guardar(req.body),
+ //aca lo puedes guardar de una vez asi porque ya en el req te viene como un objeto parseado y todo
+    )}
+    res.send(req.body)
+})
+
+En la clase GenerarProductos te falto el constructor,
+
+ constructor(){
+
+        this.productos = [];
+
+    }
+
+
+En las respuestas de listar no son necesarios los parentesis.
+El metodo de buscar por id, esta bien. Solo que para que sea mas practico podrias ir familiarizando con los metodos de
+busquedas en arrays, ya que los id no siempre son numeros enteros. Para este caso, te serviria perfecto el metodo find
+de los arrays.

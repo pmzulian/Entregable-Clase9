@@ -15,15 +15,14 @@ app
     .on("error", (error) => console.log(`Error en servidor ${error}`));
 
 const nuevosProductos = new crearProd();
+console.log(nuevosProductos)
 
 app.post("/api/productos/guardar", (req, res) => {
     nuevosProductos.guardar({
-        id: nuevosProductos.getId(),
-        title: req.body.title,
-        price: req.body.price,
-        thumbnail: req.body.thumbnail
+        ...req.body,
+        id: nuevosProductos.getId()
     })
-    res.send(nuevosProductos)
+    res.send(req.body)
 })
 
 app.get("/api/productos/listar", (req, res) => {
@@ -36,10 +35,31 @@ app.get("/api/productos/listar", (req, res) => {
 })
 
 app.get("/api/productos/listar/:id", (req, res) => {
-    const producto = nuevosProductos.listarIndividual(req.params.id)
-    if(producto){
-        res.send(producto);
+    let found = nuevosProductos.listarIndividual(req.params.id)
+    console.log(found)
+    if(found){
+        res.send(found);
     }else{
         res.json({error: "No hay producto con el id indicado"})
     }
+})
+
+//Creamos la estructura con express.router
+
+const router = express.Router();
+
+app.use("/api", router);
+
+router.put("/productos/actualizar/:id", (req, res) => {
+    res.json({
+        estado: "Actualización correcta",
+        ...req.params
+    })
+})
+
+router.delete("/productos/actualizar/:id", (req, res) => {
+    res.json({
+        estado: "Borrado",
+        ...req.params
+    })
 })

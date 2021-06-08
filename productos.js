@@ -1,6 +1,8 @@
 class GenerarProductos{
 
-    productos = [];
+    constructor() {
+        this.productos = []
+    }
 
     getId(){
         return this.productos.length + 1
@@ -15,7 +17,7 @@ class GenerarProductos{
     }
 
     listarIndividual(id){
-        return (this.productos[id-1]);
+        return (this.productos[id - 1]);
     }
 
 }

@@ -15,3 +15,15 @@ const producto3 = new Producto(
   15000,
   "https://www.flaticon.es/icono-gratis/disco-ssd_2426005"
 );
+
+{
+    "title": "Televisor SMARTV",
+    "price": 85000,
+    "thumbnail": "https://www.flaticon.es/icono-gratis/televisor_4384367"
+}
+
+{
+    "title": "Computadora Desktop",
+    "price": 120000,
+    "thumbnail": "https://www.flaticon.es/icono-gratis/ordenador-de-sobremesa_1792525"
+}
