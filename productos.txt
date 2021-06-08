@@ -1,0 +1,17 @@
+const producto1 = new Producto(
+  "Televisor SMARTV",
+  85000,
+  "https://www.flaticon.es/icono-gratis/televisor_4384367"
+);
+
+const producto2 = new Producto(
+    "Computadora Desktop",
+    120000,
+    "https://www.flaticon.es/icono-gratis/ordenador-de-sobremesa_1792525"
+)
+
+const producto3 = new Producto(
+  "Disco Duro SSD",
+  15000,
+  "https://www.flaticon.es/icono-gratis/disco-ssd_2426005"
+);

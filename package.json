@@ -1,0 +1,22 @@
+{
+  "name": "entregable-clase9",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pmzulian/Entregable-Clase9.git"
+  },
+  "author": "Pablo Martín ZULIÁN",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pmzulian/Entregable-Clase9/issues"
+  },
+  "homepage": "https://github.com/pmzulian/Entregable-Clase9#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
