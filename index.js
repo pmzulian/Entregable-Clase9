@@ -5,6 +5,10 @@ const app = express();
 
 const puerto = 8080;
 
+const router = express.Router();
+
+app.use("/api", router);
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -48,10 +52,6 @@ app.get("/api/productos/listar/:id", (req, res) => {
 
 //Creamos la estructura con express.router
 
-const router = express.Router();
-
-app.use("/api", router);
-
 router.put("/productos/actualizar/:id", (req, res) => {
 
     const ubicacion = req.params.id;
@@ -89,6 +89,6 @@ router.delete("/productos/borrar/:id", (req, res) => {
         res.send("No exite el produco")
     }
 
-
-
 })
+
+app.use("/formulario", express.static('public'))
