@@ -14,8 +14,9 @@ app
     )
     .on("error", (error) => console.log(`Error en servidor ${error}`));
 
+
 const nuevosProductos = new crearProd();
-console.log(nuevosProductos)
+
 
 app.post("/api/productos/guardar", (req, res) => {
     nuevosProductos.guardar({
@@ -44,6 +45,7 @@ app.get("/api/productos/listar/:id", (req, res) => {
     }
 })
 
+
 //Creamos la estructura con express.router
 
 const router = express.Router();
@@ -51,10 +53,24 @@ const router = express.Router();
 app.use("/api", router);
 
 router.put("/productos/actualizar/:id", (req, res) => {
-    res.json({
-        estado: "Actualización correcta",
-        ...req.params
-    })
+
+    const ubicacion = req.params.id;
+    const actualizar = req.body
+
+    if(ubicacion <= nuevosProductos.productos.length){
+        nuevosProductos.productos = nuevosProductos.productos.map(p => {
+            if(p.id == ubicacion){
+                p = Object.assign(p, actualizar)
+            }
+            return p
+        })
+        res.json({
+            ...nuevosProductos.productos
+        })
+    }else{
+        res.send("No hay producto con el índice " + ubicacion)
+    }
+
 })
 
 router.delete("/productos/actualizar/:id", (req, res) => {

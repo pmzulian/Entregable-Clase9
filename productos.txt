@@ -27,3 +27,9 @@ const producto3 = new Producto(
     "price": 120000,
     "thumbnail": "https://www.flaticon.es/icono-gratis/ordenador-de-sobremesa_1792525"
 }
+
+{
+	"title": "Google Chromecast 3ra gen",
+	"price": 28000,
+	"thumbnail": "https://www.flaticon.es/icono-gratis/chromecast_2606023"
+}

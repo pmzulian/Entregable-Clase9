@@ -42,5 +42,6 @@ nuevosProductos.guardar({
 
 // nuevosProductos.listarIndividual(2)
 
+// nuevosProductos.productos.forEach(index => console.log(index))
 
 export default GenerarProductos;
