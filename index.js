@@ -77,8 +77,18 @@ router.delete("/productos/borrar/:id", (req, res) => {
 
     let id = req.params.id;
 
-    let borrado = nuevosProductos.borrar(id)
+    let productoBuscado = nuevosProductos.productos.find(p => {
+        return p.id == id
+    })
 
-    res.send(borrado)
+    if(productoBuscado){
+        let borrado = nuevosProductos.borrar(id)
+
+        res.send(borrado)
+    }else{
+        res.send("No exite el produco")
+    }
+
+
 
 })
