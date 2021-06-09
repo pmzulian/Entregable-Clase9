@@ -73,9 +73,12 @@ router.put("/productos/actualizar/:id", (req, res) => {
 
 })
 
-router.delete("/productos/actualizar/:id", (req, res) => {
-    res.json({
-        estado: "Borrado",
-        ...req.params
-    })
+router.delete("/productos/borrar/:id", (req, res) => {
+
+    let id = req.params.id;
+
+    let borrado = nuevosProductos.borrar(id)
+
+    res.send(borrado)
+
 })
